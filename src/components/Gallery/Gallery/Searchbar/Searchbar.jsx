@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Form } from './Searchbar.styled';
+import { Form, Button, Input} from './Searchbar.styled';
 
 export class SearchBar extends Component {
     state = {
@@ -15,7 +15,7 @@ export class SearchBar extends Component {
 
 // Передаємо в App значення searchQuery і очищуємо форму
     handleSubmit = e => {
-        e.preventDefauld();
+        e.preventDefault();
 
         const { searchQuery } = this.state;
         const { onSubmit } = this.props;
@@ -25,6 +25,7 @@ export class SearchBar extends Component {
         } 
 
     onSubmit(searchQuery);
+    
     this.setState({ searchQuery: '' });
 
     }
@@ -34,17 +35,16 @@ export class SearchBar extends Component {
         const searchQuery = this.state.searchQuery
         
         return (
-            <header class="searchbar">
-    <Form class="form" onSubmit={this.handleSubmit} >
-    <button type="submit" class="button">
-    <span class="button-label">Search</span>
-    </button>
+            <header>
+    <Form onSubmit={this.handleSubmit} >
+    <Button type="submit">
+    <span>Search</span>
+    </Button>
 
-<input
-    class="input"
+<Input
     type="text"
-    autocomplete="off"
-    autofocus
+    autoComplete="off"
+    autoFocus
     placeholder="Search images and photos"
     value={searchQuery}
     onChange={this.handleChangeSearchQuery}
