@@ -68,17 +68,13 @@ export class App extends Component{
     return (
     <div>
         <SearchBar onSubmit={this.handleSubmitSearchQuery} /> 
-        <ImageGallery items={this.state.images} getItemClick={this.getLargeImage}/>
+        <ImageGallery items={this.state.images} getItemClick={this.getLargeImage} />
         {this.state.isLoading && <Loader />}
         {lengthImages && <LoadMore onLoadMore={() => this.getDataImages} />}
         {this.state.isModalOpen && (<ModalOverlay
-            largeImageURL={this.state.largeImage}
-            onClick={this.toggleShowModal} 
-          />)}
-          
-        
-
-
+          largeImageURL={this.state.largeImage}
+          onClick={this.toggleShowModal}
+        />)}
     </div>
   );
 };
