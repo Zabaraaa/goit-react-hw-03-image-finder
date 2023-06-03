@@ -71,12 +71,14 @@ export class App extends Component{
         <ImageGallery items={this.state.images} getItemClick={this.getLargeImage}/>
         {this.state.isLoading && <Loader />}
         {lengthImages && <LoadMore onLoadMore={() => this.getDataImages} />}
-        {this.state.isModalOpen && (
-          <ModalOverlay
+        {this.state.isModalOpen && (<ModalOverlay
             largeImageURL={this.state.largeImage}
             onClick={this.toggleShowModal} 
-          />
-        )}
+          />)}
+          
+        
+
+
     </div>
   );
 };
